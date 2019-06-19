@@ -33,5 +33,5 @@
 *.bin
 
 # Development environment
-./vscode
+.vscode
 
