@@ -1,0 +1,24 @@
+############################################
+# Syntax Coloring Map For TinyTemplateEngine
+############################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+TinyTemplateEngine	KEYWORD1
+Reader	KEYWORD1
+TinyTemplateEngineMemoryReader	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+start	KEYWORD2
+nextLine	KEYWORD2
+end	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
