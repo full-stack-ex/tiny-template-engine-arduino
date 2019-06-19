@@ -21,7 +21,7 @@ It is simple. Please take a look ar the examples first. You may not need to read
 
 
 Anyway, here are the details in case you need them.
-**1. The Template **
+## 1. The Template
 
 Create a template. It is a text with the placeholders. For example. to create it in the program memory:
 ```c++
@@ -33,7 +33,7 @@ Running:\n\
 ...
 ";
 ```
-**2. The Individual Values**
+## 2. The Individual Values
 
 Have all your values in a text format, like this (for example, the current run time):
 ```c++
@@ -43,7 +43,7 @@ Have all your values in a text format, like this (for example, the current run t
 ```
 
 Of course, you don't need to convert any variables that are already in the text form (char *).
-**3. Put the Values Together **
+## 3. Put the Values Together
 
 Make an array of all the individual values:
 ```c++
@@ -53,23 +53,23 @@ Make an array of all the individual values:
     0 // Guard against wrong parameters, such as ${9999}
   };
 ```
-**4. Create a Template Line Reader for the Template Lines **
+## 4. Create a Template Line Reader for the Template Lines
 
 Using the memory reader:
 ```c++
   TinyTemplateEngineMemoryReader reader(theTemplate);
 ```
-**5. Create the engine **
+## 5. Create the engine
 
 ```c++
   TinyTemplateEngine engine(reader); // The engine. It needs a reader
 ```
-**6. Start **
+## 6. Start
 
 ```c++
   engine.start(values); // Get ready for the first line
 ```
-**7. Read the Lines **
+## 7. Read the Lines
 
 Make a loop to read the lines one by one.
 
@@ -83,15 +83,15 @@ while (const char* line = engine.nextLine()) {
     ...
 }
 ```
-**8. Clean Up **
+## 8. Clean Up
 
 You must call this to free the memory:
 ```c++
 engine.end();
 ```
-**9. And Then... **
+## 9. And Then...
 
 You are done!
 
 
-As a result, the memory footprint imposed by the engine will be about the size of the longest line after variable substitution.
+As a result, you will get the template processed, and the memory footprint imposed by the engine will be about the size of the longest line after variable substitution.
