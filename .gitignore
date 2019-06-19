@@ -30,4 +30,8 @@
 *.exe
 *.out
 *.app
+*.bin
+
+# Development environment
+./vscode
 
