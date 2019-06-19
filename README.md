@@ -23,7 +23,7 @@ It is simple. Please take a look ar the examples first. You may not need to read
 Anyway, here are the details in case you need them.
 ## 1. The Template
 
-Create a template. It is a text with the placeholders. For example. to create it in the program memory:
+Create a template. It is a text with the placeholders. For example, to create it in the program memory:
 ```c++
 static const char* const theTemplate PROGMEM = "\
 ========================\n\
