@@ -6,9 +6,9 @@ It is different in that it can handle large texts (templates), which don't fit i
 
 - The engine processes the text line by line. The lines must be separated by the line end ('\n'). The line end itself is not included in the output. Your code obtains the lines one by one in a loop and sends them to the destination. For example, ESP8266WebServer::sendContent(line) to send content to a Web server
 
-- The engine only allocates the memory needed to hold a single output line - the current one. It uses no String variables, and reduces memory consumption and fragmentation to a minimum
+- The engine only allocates the memory needed to hold a single output line - the current one. It uses no String variables, and it reduces memory consumption and fragmentation to a minimum
 
-- The engine is universal and designed to hanle different template sources. It uses an abstract Reader class as an interface to read the lines from the source. Currently, you can use a PROGMEM reader implementation called TinyTemplateEngineMemoryReader. SPIFFS support is coming next, and you can implement your own readers using the memory reader source as an example
+- The engine is universal and designed to handle different template sources. It uses an abstract Reader class as an interface to read the lines from the source. Currently, you can use a PROGMEM reader implementation called TinyTemplateEngineMemoryReader. SPIFFS support is coming next, and you can implement your own readers using the memory reader source as an example
 
 Tested with an ESP8266 and Arduino Uno (Elegoo UNO R3).
 
@@ -59,12 +59,12 @@ Using the memory reader:
 ```c++
   TinyTemplateEngineMemoryReader reader(theTemplate);
 ```
-## 5. Create the engine
+## 5. Create the Engine for This Template
 
 ```c++
   TinyTemplateEngine engine(reader); // The engine. It needs a reader
 ```
-## 6. Start
+## 6. Initialize
 
 ```c++
   engine.start(values); // Get ready for the first line
