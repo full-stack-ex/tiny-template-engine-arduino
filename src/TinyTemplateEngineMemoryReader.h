@@ -32,7 +32,9 @@ class TinyTemplateEngineMemoryReader: public TinyTemplateEngine::Reader {
         TinyTemplateEngineMemoryReader(const char* text);
         virtual ~TinyTemplateEngineMemoryReader(){}
         virtual TinyTemplateEngine::Line nextLine() override;
+        virtual void reset() override;
     private:
+        const char* _text;
         const char* _position;
 };
 

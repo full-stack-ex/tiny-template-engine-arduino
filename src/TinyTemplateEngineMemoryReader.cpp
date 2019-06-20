@@ -27,7 +27,12 @@ SOFTWARE.
 
 TinyTemplateEngineMemoryReader::TinyTemplateEngineMemoryReader(const char* text):
     Reader(),
+    _text(text),
     _position(text) {}
+
+void TinyTemplateEngineMemoryReader::reset() {
+    _position = _text;
+}
 
 TinyTemplateEngine::Line TinyTemplateEngineMemoryReader::nextLine() {
     if (! *_position) return TinyTemplateEngine::Line(0, 0);

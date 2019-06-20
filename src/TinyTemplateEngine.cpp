@@ -35,6 +35,7 @@ TinyTemplateEngine::TinyTemplateEngine(Reader& reader): _reader(reader), _buffer
 
 void TinyTemplateEngine::start(const char * const * values) {
     reset();
+    _reader.reset();
     _values = values;
 }
 

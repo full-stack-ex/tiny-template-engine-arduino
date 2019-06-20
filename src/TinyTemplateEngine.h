@@ -48,9 +48,9 @@ class TinyTemplateEngine {
                 virtual Line nextLine() = 0;
                 Reader(){}
                 virtual ~Reader(){ reset(); }
-            protected:
                 // Free resources, e.g., the memory, which may need to be allocated for the last line
                 virtual void reset(){}
+
         };
 
         // The engine uses a Reader to read the template lines
