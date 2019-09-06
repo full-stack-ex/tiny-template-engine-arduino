@@ -18,13 +18,14 @@ The template is expanded line by line (terminated by \n), so the memory footprin
 // The template. It is located in the program memory (ROM). That saves the precious memory (RAM)
 // It contains some variables, including one out of range, which has no corresponding value and will be ignored
 // The \n character is important: it denotes the end of the line. It is not included in the output
-static const char* const theTemplate PROGMEM = "\
-========================\n\
-Running:\n\
-- ${0} seconds\n\
-- ${1} times\n\
-${9999}Extra parameters ignored\n\
-";
+static PGM_P theTemplate PROGMEM = R"==(
+========================
+Running:
+- ${0} seconds
+- ${1} times
+
+${9999}Extra parameters ignored
+)==";
 
 void setup() {
   Serial.begin(115200);
@@ -48,6 +49,7 @@ void loop() {
   // This one reads from memory
   // See the source to see how to implement other readers, e.g., for SPIFFS
   TinyTemplateEngineMemoryReader reader(theTemplate);
+  reader.keepLineEnds(true);  // Include trailing "\n" in the output
 
   TinyTemplateEngine engine(reader); // The engine. It needs a reader
   
@@ -61,7 +63,7 @@ void loop() {
 
   while (const char* line = engine.nextLine()) { // Read the lines and expand the variables
     // Memory for the line is allocated and deleted inside the engine
-    Serial.println(line); // Might go to ESP8266WebServer::sendContent(line) or anywhere
+    Serial.print(line); // Might go to ESP8266WebServer::sendContent(line) or anywhere
     // Take a breath
     delay(1);
   }
@@ -98,4 +100,3 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 */
-

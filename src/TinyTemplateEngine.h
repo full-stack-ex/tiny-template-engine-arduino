@@ -46,11 +46,14 @@ class TinyTemplateEngine {
         class Reader {
             public:
                 virtual Line nextLine() = 0;
-                Reader(){}
+                Reader(): _keepLineEnds(false) {}
                 virtual ~Reader(){ reset(); }
                 // Free resources, e.g., the memory, which may need to be allocated for the last line
                 virtual void reset(){}
-
+		bool keepLineEnds() { return _keepLineEnds; }
+		bool keepLineEnds(bool keep) { _keepLineEnds = keep; return keepLineEnds(); }
+            private:
+                bool _keepLineEnds;
         };
 
         // The engine uses a Reader to read the template lines

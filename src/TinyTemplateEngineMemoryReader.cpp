@@ -44,6 +44,11 @@ TinyTemplateEngine::Line TinyTemplateEngineMemoryReader::nextLine() {
             strlen(_position)
     ;
     const char* curentLine = _position;
-    _position += len; if (*_position /* \n */) _position++;
+    _position += len;
+    if (*_position /* \n */) {
+        _position++;
+	if (keepLineEnds()) len++;
+    }
+
     return TinyTemplateEngine::Line(curentLine, len);
 }
